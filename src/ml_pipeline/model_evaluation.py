@@ -1,5 +1,5 @@
 from sklearn import metrics
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import recall_score
 
 # function to calculate the accuracy score of a model
 def evaluate_model(y_test, y_pred, method):
@@ -13,12 +13,12 @@ def evaluate_model(y_test, y_pred, method):
     y_pred : pandas.Series or numpy.ndarray
         Predicted labels from the model.
     method : str
-        The evaluation metric to use. Currently, only "accuracy_score" is supported.
+        The evaluation metric to use. Currently, only "recall_score" is supported.
     
     Returns:
     --------
     score : float
-        The accuracy score of the model if "accuracy_score" is used as the method.
+        The accuracy score of the model if "recall_score" is used as the method.
     
     Raises:
     -------
@@ -30,10 +30,10 @@ def evaluate_model(y_test, y_pred, method):
     - Currently, the function only supports accuracy score as the evaluation metric.
     - If an unsupported method is passed, an error message will be printed.
     """
-    if method == "accuracy_score":
-        score = accuracy_score(y_test, y_pred)
+    if method == "recall_score":
+        score = recall_score(y_test, y_pred)
     else:
-        raise ValueError("Only 'accuracy_score' is supported as an evaluation metric.")
+        raise ValueError("Only 'recall_score' is supported as an evaluation metric.")
 
     return score
     

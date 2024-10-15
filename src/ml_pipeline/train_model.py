@@ -53,9 +53,9 @@ def train_model(X_train, y_train, X_test, y_test):
     for model_name in list(model_dict.keys()):
         model = model_dict[model_name]
         fitted_model.append(model.fit(X_train, y_train))
-        score.append(evaluate_model(y_test, model.predict(X_test), "accuracy_score"))
+        score.append(evaluate_model(y_test, model.predict(X_test), "recall_score"))
     
-    max_test = max_val_index(score) # for maximum accuracy amongst all the models trained
+    max_test = max_val_index(score) # for maximum recall score amongst all the models trained
     max_score = max_test[0]
     max_score_index = max_test[1]
     final_model = fitted_model[max_score_index]
